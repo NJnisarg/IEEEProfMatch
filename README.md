@@ -86,3 +86,17 @@ python manage.py migrate
 ``` 
 python manage.py runserver
 ```
+
+## Services and API Endpoints
+
+### Introduction
+
+* Since the backend of professor matching follows the RESTful design pattern, it has RESTful services and endpoints.
+* The complete list of services and endpoints can be found out in the wiki section of the repository.
+* A brief overview of services :
+    * Registration
+    * Login
+    * Student basic profile
+    * Professor basic profile
+    * Student detailed profile
+    * Professor detailed profile
