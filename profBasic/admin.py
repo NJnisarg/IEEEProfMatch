@@ -1,3 +1,4 @@
 from django.contrib import admin
+from profBasic.models import profBasic
 
-# Register your models here.
+admin.site.register(profBasic)

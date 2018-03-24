@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'profBasic.apps.ProfbasicConfig',
     'studentDetailed.apps.StudentdetailedConfig',
     'profDetailed.apps.ProfdetailedConfig',
+    'studentList.apps.StudentlistConfig',
 ]
 
 MIDDLEWARE = [

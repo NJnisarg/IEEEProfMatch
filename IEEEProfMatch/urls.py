@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^profBasic/',include('profBasic.urls')),
     url(r'^studentDetailed/',include('studentDetailed.urls')),
     url(r'^profDetailed/',include('profDetailed.urls')),
+    url(r'^studentList/',include('studentList.urls')),
 ]

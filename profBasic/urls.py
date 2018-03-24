@@ -3,5 +3,5 @@ from profBasic import views
 
 urlpatterns = [
     path('listCreate/', views.profBasicListCreate.as_view()),
-    path('crud/<pk>', views.profBasicCRUD.as_view()),
+    path('crud/<pk>/', views.profBasicCRUD.as_view()),
 ]
