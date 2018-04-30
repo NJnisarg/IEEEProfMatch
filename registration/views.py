@@ -6,11 +6,15 @@ from rest_framework import status
 from registration.serializers import UserSerializer
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User,Group
+from profBasic.models import profBasic
+from profDetailed.models import profDetailed
+from studentBasic.models import studentBasic
+from studentDetailed.models import studentDetailed
 
 
 class StudentCreate(APIView):
     """
-    Creates the user.
+    Creates the student User.
     """
     def post(self, request, format='json'):
         serializer = UserSerializer(data=request.data)
@@ -23,12 +27,16 @@ class StudentCreate(APIView):
                 json = serializer.data
                 json['token'] = token.key
                 json['type'] = 'student'
+
+                sb = studentBasic.objects.create(username=json['username'])
+                sd = studentDetailed.objects.create(username=json['username'])
+
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProfCreate(APIView):
     """
-    Creates the user.
+    Creates the professor.
     """
 
     def post(self, request, format='json'):
@@ -42,5 +50,9 @@ class ProfCreate(APIView):
                 json = serializer.data
                 json['token'] = token.key
                 json['type'] = 'prof'
+
+                pb = profBasic.objects.create(username=json['username'])
+                pd = profDetailed.objects.create(username=json['username'])
+
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -7,31 +7,30 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
-# Create your views here.
 
 
-class profDetailedListCreate(APIView):
-    """
-    List all detailInfos, or create a new detailInfo.
-    """
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+# class profDetailedListCreate(APIView):
+#     """
+#     List all detailInfos, or create a new detailInfo.
+#     """
+#     authentication_classes = (TokenAuthentication,)
+#     permission_classes = (IsAuthenticated,)
 
-    def get(self, request, format=None):
-        details = profDetailed.objects.all()
-        serializer = profDetailedSerializer(details, many=True)
-        return Response(serializer.data)
+#     def get(self, request, format=None):
+#         details = profDetailed.objects.all()
+#         serializer = profDetailedSerializer(details, many=True)
+#         return Response(serializer.data)
 
-    def post(self, request, format=None):
-        serializer = profDetailedSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request, format=None):
+#         serializer = profDetailedSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class profDetailedCRUD(APIView):
     """
-    Retrieve, update or delete a detailInfo instance.
+    Retrieve or update a detailInfo instance.
     """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -55,7 +54,7 @@ class profDetailedCRUD(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
-        detailInfo = self.get_object(pk)
-        detailInfo.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    # def delete(self, request, pk, format=None):
+    #     detailInfo = self.get_object(pk)
+    #     detailInfo.delete()
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
