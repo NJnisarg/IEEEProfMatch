@@ -8,4 +8,4 @@ language: python
   before_script:
     - python manage.py migrate
   script:
-    - python manage.py runserver
+    - python manage.py test
