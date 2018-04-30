@@ -1,6 +1,7 @@
 from profDetailed.models import profDetailed
 from studentDetailed.models import studentDetailed
 from studentList.serializers import studentListSerializer
+from studentList.workers import studentListWorker
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -16,7 +17,6 @@ class studentListAPI(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, pk,format=None):
-        prof = profDetailed.objects.get(pk=pk)
-        stuList = studentDetailed.objects.filter(cgpa__gte=prof.minCgpa,yearOfStudy__gte=prof.minYearOfStudy,workEx__gte=prof.minWorkEx)
+        stuList = studentListWorker.getList(pk)
         serializer = studentListSerializer(stuList, many=True)
         return Response(serializer.data)
