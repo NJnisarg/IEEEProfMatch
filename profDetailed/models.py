@@ -6,7 +6,7 @@ class profDetailed(models.Model):
     keywords = models.TextField(blank=True,null=True)
     minWorkEx = models.PositiveIntegerField(blank=True,null=True)
     minYearOfStudy = models.PositiveIntegerField(blank=True,null=True)
-    minCgpa = models.PositiveIntegerField(blank=True,null=True)
+    minCgpa = models.FloatField(blank=True,null=True)
     branch = models.TextField(blank=True,null=True)
 
 
