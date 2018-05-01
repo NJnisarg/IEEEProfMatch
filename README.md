@@ -32,6 +32,19 @@ python manage.py runserver
 
 This starts up the server on ``` localhost:8000/ ```
    
+## Usage Instructions
+
+* This repository is the backend system of Professor Matching project under IEEE Envision programme.
+* To get the system up and running on your local machine, carry out the installation instructions listed above and configure the database.
+* You can use the default inbuilt SQLite database for testing. For using MySQL database, carry out the above database configurations
+* At the end of the process, the backend server will be running on ``` localhost:8000/ ```
+* To test the services and apis, check out the wiki section for technical implementation details about the database schemas and API endpoints.
+* We recommend using API testing tools like "postman" for testing the endpoints.
+
+#### More about Postman
+
+* For more information about how to install and use postman follow this link : https://www.getpostman.com/docs/v6/postman/launching_postman/installation_and_updates
+
 ## Database configurations
 
 By default this application when cloned will use the embedded sqlite3 database. But other databases can be configured as well.
@@ -90,16 +103,3 @@ python manage.py runserver
 ## Technical details
 
 * For more information like Database schemas, the modules present, the services implemented and the API endpoints, please refer the wiki section.
-
-## Usage Instructions
-
-* This repository is the backend system of Professor Matching project under IEEE Envision programme.
-* To get the system up and running on your local machine, carry out the installation instructions listed above and configure the database.
-* You can use the default inbuilt SQLite database for testing. For using MySQL database, carry out the above database configurations
-* At the end of the process, the backend server will be running on ``` localhost:8000/ ```
-* To test the services and apis, check out the wiki section for technical implementation details about the database schemas and API endpoints.
-* We recommend using API testing tools like "postman" for testing the endpoints.
-
-#### More about Postman
-
-* For more information about how to install and use postman follow this link : https://www.getpostman.com/docs/v6/postman/launching_postman/installation_and_updates
