@@ -1,4 +1,5 @@
-# Professor Matching Project
+# Professor Matching Project [![Build Status](https://travis-ci.org/NJnisarg/IEEEProfMatch.svg?branch=master)](https://travis-ci.org/NJnisarg/IEEEProfMatch)
+
 The Backend Repository of IEEE Envision(NITK) project Professor Matching
 
 ## Installation Instructions
