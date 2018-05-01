@@ -15,7 +15,7 @@ class studentListWorker():
 		for student in stuList:
 			s0 = w[0]*(student.workEx - prof.minWorkEx);
 			s1 = w[1]*fuzz.partial_ratio(student.skillsInterest,prof.keywords)
-			s2 = w[2]*fuzz.partial_ratio(student.skillsInterest,prof.areas)
+			s2 = w[2]*fuzz.partial_ratio(student.areas,prof.areas)
 			s3 = w[3]*fuzz.partial_ratio(student.branch,prof.branch)
 			s4 = w[4]*(student.cgpa - prof.minCgpa)
 			s5 = w[5]*(student.yearOfStudy - prof.minYearOfStudy)

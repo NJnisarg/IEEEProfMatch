@@ -11,5 +11,6 @@ class studentDetailed(models.Model):
     certificates = models.TextField(blank=True,null=True)
     personalProjects = models.TextField(blank=True,null=True)
     skillsInterest = models.TextField(blank=True,null=True)
+    areas = models.TextField(blank=True,null=True)
     hobbies = models.TextField(blank=True,null=True)
 
