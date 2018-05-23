@@ -1,5 +1,7 @@
 # from django.shortcuts import render
 
+
+# Importing all the requirements
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -34,9 +36,10 @@ class StudentCreate(APIView):
                 return Response(json, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 class ProfCreate(APIView):
     """
-    Creates the professor.
+    Creates the professor User.
     """
 
     def post(self, request, format='json'):

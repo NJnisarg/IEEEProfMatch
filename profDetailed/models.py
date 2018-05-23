@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class profDetailed(models.Model):
     username = models.CharField(primary_key=True, max_length=32)
     areas = models.TextField(blank=True,null=True)

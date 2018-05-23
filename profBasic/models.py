@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class profBasic(models.Model):
     username = models.CharField(primary_key=True, max_length=32)
     firstName = models.CharField(max_length=100,blank=True,null=True)
