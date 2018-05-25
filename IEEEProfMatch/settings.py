@@ -25,7 +25,7 @@ SECRET_KEY = '+cv2w6w!4^03vqp)*#r2m(16upl60gf$816m@wefcweegxzwi^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://ieeeprofmatch-test.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['ieeeprofmatch-test.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
