@@ -6,4 +6,4 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if not User.objects.filter(username="admin").exists():
-            User.objects.create_superuser("NJnisarg", "NJnisarg@gmail.com", "djangoadminpassword")
+            User.objects.create_superuser("ProfMatchAdmin", "ProfMatchAdmin@gmail.com", "djangoadminpassword")
