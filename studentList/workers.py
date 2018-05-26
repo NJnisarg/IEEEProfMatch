@@ -10,7 +10,16 @@ from studentDetailed.models import studentDetailed
 
 def getList(pk):
 	prof = profDetailed.objects.get(pk=pk)
+	if prof is None:
+		return list()
+
+	if (prof.minCgpa is None) or (prof.minYearOfStudy is None) or (prof.areas is None) or (prof.keywords is None) or (prof.branch is None) or (prof.minWorkEx is None):
+		return list()
+
 	stuList = studentDetailed.objects.filter(cgpa__gte=prof.minCgpa, yearOfStudy__gte=prof.minYearOfStudy)
+
+	if len(stuList) == 0:
+		return list()
 
 	# The generic weightage order is : WorkEx > skillsInterest > personalProjects > publications > branch > cgpa > yearOfStudy
 	w = [0.250, 0.214, 0.178, 0.143, 0.107, 0.072, 0.036]
@@ -47,6 +56,9 @@ def getList(pk):
 
 def processWorkExObj(workExObj, areas, keywords):
 
+	if workExObj is None:
+		return 0
+
 	values = list()
 
 	for eachObj in workExObj:
@@ -75,8 +87,10 @@ def processWorkExObj(workExObj, areas, keywords):
 
 def processSkillsInterestObj(skillsInterestObj, areas, keywords):
 
-	values = list()
+	if skillsInterestObj is None:
+		return 0
 
+	values = list()
 
 	studentAreas = skillsInterestObj['areas']
 	studentKeywords = skillsInterestObj['keywords']
@@ -100,6 +114,9 @@ def processSkillsInterestObj(skillsInterestObj, areas, keywords):
 
 
 def processPersonalProjectsObj(personalProjectsObj, areas, keywords):
+
+	if personalProjectsObj is None:
+		return 0
 
 	values = list()
 
@@ -130,6 +147,9 @@ def processPersonalProjectsObj(personalProjectsObj, areas, keywords):
 
 def processPublicationsObj(publicationsObj, areas, keywords):
 
+	if publicationsObj is None:
+		return 0
+
 	values = list()
 
 	for eachObj in publicationsObj:
@@ -157,6 +177,9 @@ def processPublicationsObj(publicationsObj, areas, keywords):
 	return mean(values)*100
 
 def processBranch(branch,profBranch):
+
+	if branch is None:
+		return 0
 
 	profBranch = loads(profBranch)
 
