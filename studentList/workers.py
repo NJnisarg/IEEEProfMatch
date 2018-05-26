@@ -13,7 +13,7 @@ def getList(pk):
 	if prof is None:
 		return list()
 
-	if (prof.minCgpa is None) or (prof.minYearOfStudy is None) or (prof.areas is None) or (prof.keywords is None) or (prof.branch is None) or (prof.minWorkEx is None):
+	if (prof.minCgpa is None) or (prof.minYearOfStudy is None) or (prof.minWorkEx is None):
 		return list()
 
 	stuList = studentDetailed.objects.filter(cgpa__gte=prof.minCgpa, yearOfStudy__gte=prof.minYearOfStudy)
@@ -54,9 +54,9 @@ def getList(pk):
 		s1 = w[1]*processSkillsInterestObj(skillsInterestObj, prof.areas, prof.keywords)
 		s2 = w[2]*processPersonalProjectsObj(personalProjectsObj, prof.areas, prof.keywords)
 		s3 = w[3]*processPublicationsObj(publicationsObj, prof.areas, prof.keywords)
-		s4 = w[4]*processBranch(student.branch,prof.branch)
+		s4 = w[4]*processBranch(student.branch, prof.branch)
 		s5 = w[5]*(student.cgpa - prof.minCgpa)
-		s6 = w[6]*(student.yearOfStudy - prof.minCgpa)
+		s6 = w[6]*(student.yearOfStudy - prof.minYearOfStudy)
 		score = s0+s1+s2+s3+s4+s5+s6
 		print(score)
 		s.append([student.username, score])
@@ -75,6 +75,18 @@ def processWorkExObj(workExObj, areas, keywords):
 	if workExObj is None:
 		return 0
 
+	if (areas is None) or (areas is ""):
+		areas = list()
+	else:
+		areas = list(areas)
+		areas = [area.lower() for area in areas]
+
+	if (keywords is None) or (keywords is ""):
+		keywords = list()
+	else:
+		keywords = list(keywords)
+		keywords = [keyword.lower() for keyword in keywords]
+
 	values = list()
 
 	for eachObj in workExObj:
@@ -86,12 +98,6 @@ def processWorkExObj(workExObj, areas, keywords):
 			if (tuple[1] == 'NN') or (tuple[1] == 'NNS') or (tuple[1]=='NNP') :
 				nouns.append(tuple[0])
 		nouns = [noun.lower() for noun in nouns]
-
-		keywords = list(keywords)
-		keywords = [keyword.lower() for keyword in keywords]
-
-		areas = list(areas)
-		areas = [area.lower() for area in areas]
 
 		unitedKeywords = list(set(keywords).union(areas))
 
@@ -106,18 +112,24 @@ def processSkillsInterestObj(skillsInterestObj, areas, keywords):
 	if skillsInterestObj is None:
 		return 0
 
+	if (areas is None) or (areas is ""):
+		areas = list()
+	else:
+		areas = list(areas)
+		areas = [area.lower() for area in areas]
+
+	if (keywords is None) or (keywords is ""):
+		keywords = list()
+	else:
+		keywords = list(keywords)
+		keywords = [keyword.lower() for keyword in keywords]
+
 	values = list()
 
 	studentAreas = skillsInterestObj['areas']
 	studentKeywords = skillsInterestObj['keywords']
 	unitedStudentKeywords = list(set(studentAreas).union(studentKeywords))
 	unitedStudentKeywords = [word.lower() for word in unitedStudentKeywords]
-
-	keywords = list(keywords)
-	keywords = [keyword.lower() for keyword in keywords]
-
-	areas = list(areas)
-	areas = [area.lower() for area in areas]
 
 	unitedKeywords = list(set(keywords).union(areas))
 
@@ -134,6 +146,18 @@ def processPersonalProjectsObj(personalProjectsObj, areas, keywords):
 	if personalProjectsObj is None:
 		return 0
 
+	if (areas is None) or (areas is ""):
+		areas = list()
+	else:
+		areas = list(areas)
+		areas = [area.lower() for area in areas]
+
+	if (keywords is None) or (keywords is ""):
+		keywords = list()
+	else:
+		keywords = list(keywords)
+		keywords = [keyword.lower() for keyword in keywords]
+
 	values = list()
 
 	for eachObj in personalProjectsObj:
@@ -145,12 +169,6 @@ def processPersonalProjectsObj(personalProjectsObj, areas, keywords):
 			if (wordTuple[1] == 'NN') or (wordTuple[1] == 'NNS') or (wordTuple[1] == 'NNP'):
 				nouns.append(wordTuple[0])
 		nouns = [noun.lower() for noun in nouns]
-
-		keywords = list(keywords)
-		keywords = [keyword.lower() for keyword in keywords]
-
-		areas = list(areas)
-		areas = [area.lower() for area in areas]
 
 		unitedKeywords = list(set(keywords).union(areas))
 
@@ -165,6 +183,18 @@ def processPublicationsObj(publicationsObj, areas, keywords):
 	if publicationsObj is None:
 		return 0
 
+	if (areas is None) or (areas is ""):
+		areas = list()
+	else:
+		areas = list(areas)
+		areas = [area.lower() for area in areas]
+
+	if (keywords is None) or (keywords is ""):
+		keywords = list()
+	else:
+		keywords = list(keywords)
+		keywords = [keyword.lower() for keyword in keywords]
+
 	values = list()
 
 	for eachObj in publicationsObj:
@@ -177,12 +207,6 @@ def processPublicationsObj(publicationsObj, areas, keywords):
 				nouns.append(tuple[0])
 		nouns = [noun.lower() for noun in nouns]
 
-		keywords = list(keywords)
-		keywords = [keyword.lower() for keyword in keywords]
-
-		areas = list(areas)
-		areas = [area.lower() for area in areas]
-
 		unitedKeywords = list(set(keywords).union(areas))
 
 		finalList = list(set(unitedKeywords).intersection(nouns))
@@ -191,12 +215,16 @@ def processPublicationsObj(publicationsObj, areas, keywords):
 
 	return mean(values)*100
 
+
 def processBranch(branch,profBranch):
 
 	if branch is None:
 		return 0
 
-	profBranch = list(profBranch)
+	if (profBranch is None) or (profBranch is ""):
+		profBranch = list()
+	else:
+		profBranch = list(profBranch)
 
 	if branch in profBranch:
 		return 100
