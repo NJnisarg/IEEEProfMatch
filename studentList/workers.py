@@ -28,11 +28,27 @@ def getList(pk):
 
 	for student in stuList:
 
+		if (student.workEx is None) or (student.workEx is ""):
+			workExObj = None
+		else
+			workExObj = loads(student.workEx)
+
+		if (student.skillsInterest is None) or (student.skillsInterest is ""):
+			skillsInterestObj= None
+		else
+			skillsInterestObj = loads(student.skillsInterest)
+
+		if (student.personalProjects is None) or (student.personalProjects is ""):
+			personalProjectsObj = None
+		else
+			personalProjectsObj = loads(student.personalProjects)
+
+		if (student.publications is None) or (student.publications is ""):
+			publicationsObj = None
+		else
+			publicationsObj = loads(student.publications)
+
 		# Convert all the TextField string into objects to manipulate
-		workExObj = loads(student.workEx)
-		skillsInterestObj = loads(student.skillsInterest)
-		personalProjectsObj = loads(student.personalProjects)
-		publicationsObj = loads(student.publications)
 
 		s0 = w[0]*processWorkExObj(workExObj, prof.areas, prof.keywords)
 		s1 = w[1]*processSkillsInterestObj(skillsInterestObj, prof.areas, prof.keywords)
