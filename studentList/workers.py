@@ -196,7 +196,7 @@ def processBranch(branch,profBranch):
 	if branch is None:
 		return 0
 
-	profBranch = loads(profBranch)
+	profBranch = list(profBranch)
 
 	if branch in profBranch:
 		return 100
