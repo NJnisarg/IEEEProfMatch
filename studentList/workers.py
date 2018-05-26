@@ -87,10 +87,10 @@ def processWorkExObj(workExObj, areas, keywords):
 				nouns.append(tuple[0])
 		nouns = [noun.lower() for noun in nouns]
 
-		keywords = loads(keywords)
+		keywords = list(keywords)
 		keywords = [keyword.lower() for keyword in keywords]
 
-		areas = loads(areas)
+		areas = list(areas)
 		areas = [area.lower() for area in areas]
 
 		unitedKeywords = list(set(keywords).union(areas))
@@ -113,10 +113,10 @@ def processSkillsInterestObj(skillsInterestObj, areas, keywords):
 	unitedStudentKeywords = list(set(studentAreas).union(studentKeywords))
 	unitedStudentKeywords = [word.lower() for word in unitedStudentKeywords]
 
-	keywords = loads(keywords)
+	keywords = list(keywords)
 	keywords = [keyword.lower() for keyword in keywords]
 
-	areas = loads(areas)
+	areas = list(areas)
 	areas = [area.lower() for area in areas]
 
 	unitedKeywords = list(set(keywords).union(areas))
@@ -146,11 +146,10 @@ def processPersonalProjectsObj(personalProjectsObj, areas, keywords):
 				nouns.append(wordTuple[0])
 		nouns = [noun.lower() for noun in nouns]
 
-
-		keywords = loads(keywords)
+		keywords = list(keywords)
 		keywords = [keyword.lower() for keyword in keywords]
 
-		areas = loads(areas)
+		areas = list(areas)
 		areas = [area.lower() for area in areas]
 
 		unitedKeywords = list(set(keywords).union(areas))
@@ -178,10 +177,10 @@ def processPublicationsObj(publicationsObj, areas, keywords):
 				nouns.append(tuple[0])
 		nouns = [noun.lower() for noun in nouns]
 
-		keywords = loads(keywords)
+		keywords = list(keywords)
 		keywords = [keyword.lower() for keyword in keywords]
 
-		areas = loads(areas)
+		areas = list(areas)
 		areas = [area.lower() for area in areas]
 
 		unitedKeywords = list(set(keywords).union(areas))
