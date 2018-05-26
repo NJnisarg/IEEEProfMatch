@@ -19,10 +19,5 @@ class studentListAPI(APIView):
     def get(self, request, pk,format=None):
         stuList = getList(pk)
 
-        responseList = list()
-
-        for element in stuList:
-            responseList.append(studentDetailed.objects.get(element['username']))
-
-        serializer = studentListSerializer(responseList, many=True)
+        serializer = studentListSerializer(stuList, many=True)
         return Response(serializer.data)
