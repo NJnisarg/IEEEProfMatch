@@ -30,22 +30,22 @@ def getList(pk):
 
 		if (student.workEx is None) or (student.workEx is ""):
 			workExObj = None
-		else
+		else:
 			workExObj = loads(student.workEx)
 
 		if (student.skillsInterest is None) or (student.skillsInterest is ""):
 			skillsInterestObj= None
-		else
+		else:
 			skillsInterestObj = loads(student.skillsInterest)
 
 		if (student.personalProjects is None) or (student.personalProjects is ""):
 			personalProjectsObj = None
-		else
+		else:
 			personalProjectsObj = loads(student.personalProjects)
 
 		if (student.publications is None) or (student.publications is ""):
 			publicationsObj = None
-		else
+		else:
 			publicationsObj = loads(student.publications)
 
 		# Convert all the TextField string into objects to manipulate
