@@ -103,7 +103,10 @@ def processWorkExObj(workExObj, areas, keywords):
 
 		finalList = list(set(unitedKeywords).intersection(nouns))
 
-		values.append(len(finalList)/len(unitedKeywords))
+		if len(unitedKeywords)==0:
+			values.append(0)
+		else:
+			values.append(len(finalList) / len(unitedKeywords))
 
 	return mean(values)*100
 
@@ -133,10 +136,12 @@ def processSkillsInterestObj(skillsInterestObj, areas, keywords):
 
 	unitedKeywords = list(set(keywords).union(areas))
 
-
 	finalList = list(set(unitedKeywords).intersection(unitedStudentKeywords))
 
-	values.append(len(finalList)/len(unitedKeywords))
+	if len(unitedKeywords) == 0:
+		values.append(0)
+	else:
+		values.append(len(finalList) / len(unitedKeywords))
 
 	return mean(values)*100
 
@@ -174,7 +179,10 @@ def processPersonalProjectsObj(personalProjectsObj, areas, keywords):
 
 		finalList = list(set(unitedKeywords).intersection(nouns))
 
-		values.append(len(finalList)/len(unitedKeywords))
+		if len(unitedKeywords)==0:
+			values.append(0)
+		else:
+			values.append(len(finalList) / len(unitedKeywords))
 
 	return mean(values)*100
 
@@ -211,7 +219,10 @@ def processPublicationsObj(publicationsObj, areas, keywords):
 
 		finalList = list(set(unitedKeywords).intersection(nouns))
 
-		values.append(len(finalList)/len(unitedKeywords))
+		if len(unitedKeywords)==0:
+			values.append(0)
+		else:
+			values.append(len(finalList) / len(unitedKeywords))
 
 	return mean(values)*100
 
@@ -231,10 +242,3 @@ def processBranch(branch,profBranch):
 
 	else:
 		return 0
-
-
-
-
-
-
-
