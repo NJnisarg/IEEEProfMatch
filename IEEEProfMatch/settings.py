@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 # Third party
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheader',
+    'corsheaders',
 # User defined
     'registration.apps.RegistrationConfig',
     'login.apps.LoginConfig',
