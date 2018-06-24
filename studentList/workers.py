@@ -1,5 +1,3 @@
-# from fuzzywuzzy import fuzz
-# from fuzzywuzzy import process
 from textblob import TextBlob
 from statistics import mean
 from json import loads, dumps

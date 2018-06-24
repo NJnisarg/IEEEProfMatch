@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+from corsheaders.defaults import default_methods
+from corsheaders.defaults import default_headers
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
 # Third party
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheader',
 # User defined
     'registration.apps.RegistrationConfig',
     'login.apps.LoginConfig',
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -127,6 +130,12 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+
+# CORS Config
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_METHODS = default_methods
+CORS_ALLOW_HEADERS = default_headers
+CORS_ALLOW_CREDENTIALS = False
 
 
 # Internationalization
