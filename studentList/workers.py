@@ -5,7 +5,6 @@ from profDetailed.models import profDetailed
 from studentDetailed.models import studentDetailed
 
 
-
 def getList(pk):
 	prof = profDetailed.objects.get(pk=pk)
 	if prof is None:

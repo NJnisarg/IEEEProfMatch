@@ -38,11 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-# Third party
+    # Third party
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-# User defined
+    # User defined
     'registration.apps.RegistrationConfig',
     'login.apps.LoginConfig',
     'studentBasic.apps.StudentbasicConfig',

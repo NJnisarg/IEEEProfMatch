@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from studentDetailed.models import studentDetailed
 from studentDetailed.serializers import studentDetailedSerializer
 from django.http import Http404
@@ -8,25 +7,6 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
-
-# class studentDetailedListCreate(APIView):
-#     """
-#     List all detailInfos, or create a new detailInfo.
-#     """
-#     authentication_classes = (TokenAuthentication,)
-#     permission_classes = (IsAuthenticated,)
-
-#     def get(self, request, format=None):
-#         details = studentDetailed.objects.all()
-#         serializer = studentDetailedSerializer(details, many=True)
-#         return Response(serializer.data)
-
-#     def post(self, request, format=None):
-#         serializer = studentDetailedSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class studentDetailedCRUD(APIView):
     """
@@ -54,7 +34,3 @@ class studentDetailedCRUD(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # def delete(self, request, pk, format=None):
-    #     detailInfo = self.get_object(pk)
-    #     detailInfo.delete()
-    #     return Response(status=status.HTTP_204_NO_CONTENT)

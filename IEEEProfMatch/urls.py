@@ -19,11 +19,11 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^AuthReg/', include('registration.urls')),
-    url(r'^Auth/',include('login.urls')),
-    url(r'^studentBasic/',include('studentBasic.urls')),
-    url(r'^profBasic/',include('profBasic.urls')),
-    url(r'^studentDetailed/',include('studentDetailed.urls')),
-    url(r'^profDetailed/',include('profDetailed.urls')),
-    url(r'^studentList/',include('studentList.urls')),
+    path('AuthReg/', include('registration.urls'), name='register'),
+    path('Auth/', include('login.urls'), name='login'),
+    path('studentBasic/', include('studentBasic.urls'), name='studentBasic'),
+    path('profBasic/', include('profBasic.urls'), name='profBasic'),
+    path('studentDetailed/', include('studentDetailed.urls'), name='studentDetailed'),
+    path('profDetailed/', include('profDetailed.urls'), name='profDetailed'),
+    path('studentList/', include('studentList.urls'), name='studentList'),
 ]
