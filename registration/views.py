@@ -65,9 +65,9 @@ class ProfRemove(APIView):
     Deletes the professor user
     """
     def delete(self, request, pk, format='json'):
-        user = User.objects.get(pk=pk)
-        pb = profBasic.objects.get(pk=pk)
-        pd = profDetailed.objects.get(pk=pk)
+        user = User.objects.get(username=pk)
+        pb = profBasic.objects.get(username=pk)
+        pd = profDetailed.objects.get(username=pk)
 
         if (user is not None) and (pb is not None) and (pd is not None):
             user.delete()
@@ -82,9 +82,9 @@ class StudentRemove(APIView):
     Deletes the student user
     """
     def delete(self, request, pk, format='json'):
-        user = User.objects.get(pk=pk)
-        sb = studentBasic.objects.get(pk=pk)
-        sd = studentDetailed.objects.get(pk=pk)
+        user = User.objects.get(username=pk)
+        sb = studentBasic.objects.get(username=pk)
+        sd = studentDetailed.objects.get(username=pk)
 
         if (user is not None) and (sb is not None) and (sd is not None):
             user.delete()
