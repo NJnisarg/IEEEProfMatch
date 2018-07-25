@@ -9,6 +9,6 @@ class profDetailed(models.Model):
     minYearOfStudy = models.PositiveIntegerField(blank=True, null=True)
     minCgpa = models.FloatField(blank=True, null=True)
     branch = models.TextField(blank=True, null=True)
-    # selectedStudents = models.TextField(blank=True, null=True)
+    selectedStudents = models.TextField(blank=True, null=True)
 
 
