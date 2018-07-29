@@ -14,6 +14,6 @@ class profBasic(models.Model):
     department = models.CharField(max_length=100, blank=True, null=True)
     areas = models.TextField(blank=True, null=True)
     websiteLinks = models.TextField(blank=True, null=True)
-    image_path = models.ImageField(upload_to='images-data', blank=True, null=True)
+    image_path = models.ImageField(upload_to='prof-match-images-data', blank=True, null=True)
 
 
