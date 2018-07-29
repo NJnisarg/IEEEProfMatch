@@ -133,7 +133,7 @@ REST_FRAMEWORK = {
 }
 # S3 Bucket for Image upload
 AWS_STORAGE_BUCKET_NAME = 'prof-match-images-data'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # CORS Config
 CORS_ORIGIN_ALLOW_ALL = True
