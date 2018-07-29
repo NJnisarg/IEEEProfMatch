@@ -1,6 +1,7 @@
 from profBasic.models import profBasic
-from profBasic.serializers import profBasicSerializer
+from profBasic.serializers import profBasicSerializer, ImageSerializer
 from django.http import Http404
+from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -32,3 +33,13 @@ class profBasicCRUD(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ImageList(generics.ListCreateAPIView):
+    queryset = profBasic.objects.all()
+    serializer_class = ImageSerializer
+
+
+class ImageDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = profBasic.objects.all()
+    serializer_class = ImageSerializer

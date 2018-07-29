@@ -26,7 +26,7 @@ SECRET_KEY = '+cv2w6w!4^03vqp)*#r2m(16upl60gf$816m@wefcweegxzwi^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ieeeprofmatch-test.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['ieeeprofmatch-test.us-east-1.elasticbeanstalk.com', 'localhost']
 
 
 # Application definition
@@ -130,6 +130,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ),
 }
+# S3 Bucket for Image upload
+AWS_STORAGE_BUCKET_NAME = 'images-data'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 # CORS Config
 CORS_ORIGIN_ALLOW_ALL = True
